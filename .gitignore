@@ -6,7 +6,7 @@ bin/
 .*/
 
 # VSCode
-#.vscode
+.vscode
 
 # MacOS file
 .DS_Store
