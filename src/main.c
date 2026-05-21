@@ -13,7 +13,7 @@ int main(int argc, char ** argv) {
     lv_init();
     sdl_hal_init(320, 240);
 
-    start_myui();  // test UIss
+    start_myui();  // test UIsss
 
     while (1) {
         uint32_t sleep_time_ms = lv_timer_handler();
