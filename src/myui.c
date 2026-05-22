@@ -87,4 +87,14 @@ void start_myui(void) {
     lv_obj_t * obj = lv_obj_create(lv_screen_active());
     lv_obj_add_style(obj, &style, 0);
     lv_obj_center(obj);
+
+    /* Create a simple button (keeps the crosshair lines drawn by draw_crosshair()) */
+    lv_obj_t * btn = lv_btn_create(lv_screen_active());
+    lv_obj_set_size(btn, 100, 40);
+    lv_obj_center(btn);
+    lv_obj_add_event_cb(btn, btn_event_cb, LV_EVENT_CLICKED, NULL);
+
+    lv_obj_t * label = lv_label_create(btn);
+    lv_label_set_text(label, "Click me");
+    lv_obj_center(label);
 }
