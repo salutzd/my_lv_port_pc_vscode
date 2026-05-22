@@ -1,6 +1,5 @@
 #include "myui.h"
 
-#include "lvgl/lvgl.h"
 static void btn_event_cb(lv_event_t * e) {
     lv_event_code_t code = lv_event_get_code(e);
     lv_obj_t * btn = lv_event_get_target_obj(e);
@@ -59,36 +58,8 @@ void draw_crosshair(void) {
 }
 
 void start_myui(void) {
-    lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0xFFFFFF), LV_PART_MAIN);
-
     draw_crosshair();
 
-    static lv_style_t style;
-    lv_style_init(&style);
-    lv_style_set_radius(&style, 5);
-
-    /*Make a gradient*/
-    lv_style_set_bg_opa(&style, LV_OPA_COVER);
-    static lv_grad_dsc_t grad;
-    grad.dir = LV_GRAD_DIR_VER;
-    grad.stops_count = 2;
-    grad.stops[0].color = lv_palette_lighten(LV_PALETTE_GREY, 1);
-    grad.stops[0].opa = LV_OPA_COVER;
-    grad.stops[1].color = lv_palette_main(LV_PALETTE_BLUE);
-    grad.stops[1].opa = LV_OPA_COVER;
-
-    /*Shift the gradient to the bottom*/
-    grad.stops[0].frac = 100;
-    grad.stops[1].frac = 100;
-
-    lv_style_set_bg_grad(&style, &grad);
-
-    /*Create an object with the new style*/
-    lv_obj_t * obj = lv_obj_create(lv_screen_active());
-    lv_obj_add_style(obj, &style, 0);
-    lv_obj_center(obj);
-
-    /* Create a simple button (keeps the crosshair lines drawn by draw_crosshair()) */
     lv_obj_t * btn = lv_btn_create(lv_screen_active());
     lv_obj_set_size(btn, 100, 40);
     lv_obj_center(btn);

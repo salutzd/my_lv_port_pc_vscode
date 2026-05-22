@@ -1,19 +1,17 @@
-#include <SDL.h>
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-#ifdef _WIN32
-// Windows才包含Windows.h
-#include <Windows.h>
-#elif __linux__
-// Linux不需要Windows.h！这里什么都不用写
-#endif
-
+#include "SDL.h"
 #include "hal/hal.h"
 #include "lvgl/lvgl.h"
 #include "myui.h"
+#include "pthread.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "unistd.h"
+#ifdef _WIN32
+// Windows才包含Windows.h
+#include "Windows.h"
+#elif __linux__
+// Linux不需要Windows.h！这里什么都不用写
+#endif
 
 int main(int argc, char ** argv) {
     lv_init();
