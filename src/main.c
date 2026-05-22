@@ -5,11 +5,10 @@
 #include <unistd.h>
 
 #ifdef _WIN32
-// Windows 才包含 Windows.h
+// Windows才包含Windows.h
 #include <Windows.h>
 #elif __linux__
-// Linux 不需要 Windows.h！
-// 这里什么都不用写
+// Linux不需要Windows.h！这里什么都不用写
 #endif
 
 #include "hal/hal.h"
